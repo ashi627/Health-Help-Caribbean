@@ -1,0 +1,206 @@
+<html>
+<head>
+		
+	<title>Health Help Caribbean Obesity </title>
+
+	<meta name="description" content= "Health Help Caribbean allows you to take control of your health with a free risk assesment for Non-	Communicable Diseases such as Hypertension, Diabetes, and Obesity.">
+	</head>
+
+</body>
+	<a href="homepage.html"> Home </a>
+	<h2> Welcome to your Obesity Health Help asessment!</h2>
+	<p> Answer the following questions truthfully, based on your daily lifestyle, to determine whether or not you are at risk for Obesity</p> 
+
+<div class= obesityquestionaire>
+<form	 id= obesityquestionaire action = ""	method = "POST" >
+
+<section>
+<div class = "obesityquestion">
+	<h3> How often do you excercise?</h3>
+		<input type = "radio"  id = "obesity_ex_never" name = "obesity_ex" value = "never"
+	 	<label for="obesity_ex_never"> Never </label>
+	
+		<input type = "radio"  id = "obesity_ex_onceweek" name = "obesity_ex" value = "once"
+		<label for="obesity_ex_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "obesity_ex_twotothree" name = "obesity_ex" value = "two to three"
+		<label for="obesity_ex_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "obesity_ex_ormore" name = "obesity_ex" value = "more than three"
+		<label for="obesity_ex_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "obesityquestion">
+
+	<h3> How often do you eat fast food or other salty/ oily foods? </h3>
+	
+		<input type = "radio"  id = "obesity_food_never" name = "obesity_food" value = "never"
+	 	<label for="obesity_food_never"> Never </label>
+	
+		<input type = "radio"  id = "obesity_food_onceweek" name = "obesity_food" value = "once"
+		<label for="obesity_food_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "obesity_food_twotothree" name = "obesity_food" value = "two to three"
+		<label for="obesity_food_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "obesity_food_ormore" name = "obesity_food" value = "more than three"
+		<label for="obesity_food_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "obesityquestion">
+	<h3> How often do you drink sodas and other sugary drinks? </h3>
+	
+		<input type = "radio"  id = "obesity_drink_never" name = "obesity_drink" value = "never"
+	 	<label for="obesity_drink_never"> Never </label>
+	
+		<input type = "radio"  id = "obesity_drink_onceweek" name = "obesity_drink" value = "once"
+		<label for="obesity_drink_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "obesity_drink_twotothree" name = "obesity_drink" value = "two to three"
+		<label for="obesity_drink_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "obesity_drink_ormore" name = "obesity_drink" value = "more than three"
+		<label for="obesity_drink_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "obesityquestion">
+	<h3><label for = "weight" > Your weight in kilograms (kg) is </label></h3>
+		<input type = "text" id= "weight" name="obesity_weight" placeholder= "Enter value only" maxlength= "5" required> 
+</div>
+</section>
+
+<section>
+<div class = "obesityquestion">
+<h3><label for = "height" > Your hight in meters (m) is </label></h3>
+		<input type = "text" id= "height" name="obesity_height" placeholder= "Enter value only" maxlength= "5" required> 
+</div>
+</section>
+
+<section>
+<button type = "button" onclick="submit_obesityform()"> SUBMIT </button></h3>
+</section>
+
+<h2>RESULTS</h2>
+<div class= "resultsobesity" id= "obesity_results"> </div>
+<div class= "recomendationsobesity" id= "obesity_recomend"> </div>
+
+</form>
+</div>
+
+
+<script> 
+function submit_obesityform() {
+	var form = document.getElementById ("obesityquestionaire");
+	var formData = new FormData (form);
+
+
+		let exercise = formData.get ("obesity_ex");
+		let drinks = formData.get ("obesity_drink");
+		let food = formData.get ("obesity_food");
+		let weight = parseFloat(formData.get ("obesity_weight"));
+		let height = parseFloat(formData.get ("obesity_height"));
+		
+		let risklevel= "at risk of obesity";
+		let BMI= 0;
+		BMI= weight/(height*height);
+		
+			if  (exercise === "never" && food === "more than three" && drinks === "more than three"){
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+			} else if (exercise === "never" && food === "two to three" && drinks === "two to three"){
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "never" && food === "more than three" && drinks === "more than three") {
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "never" && food === "two to three" && drinks === "two to three" ){
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "once" && food === "more than three" && drinks === "more than three" ){
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "once" && food === "two to three" && drinks === "two to three" ){
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "once" && food === "more than three" && drinks === "more than three") {
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if (exercise === "once" && food === "two to three" && drinks === "two to three") {
+				if  (BMI >= 25 && BMI <= 29.5){
+				risklevel = "at risk of obesity";
+				}
+
+			} else if ( BMI >= 30){
+				risklevel= "obese. Seek medical help";
+			}else{ 
+				if (BMI< 25 || exercise === "more than three" || exercise === "two to three" ) {
+				risklevel= "not at risk of obesity";}
+			}
+
+	document.getElementById("obesity_results").innerHTML = "You are " + risklevel;
+	
+	if (risklevel === "at risk of obesity" || risklevel === "obese. Seek medical help") {
+            document.getElementById("obesity_recomend").innerHTML = `Visit our recommendation page to see how you can lessen your risk of obesity. Click <button><a href='results_recomendations.html'> HERE.</a></button> to visit 'Recommendations'.`;
+        }
+    }
+</script>
+
+
+<style>
+	section{
+	margin-bottom: 50px;
+	line-height: 2;
+	}
+
+	body{
+	background-color: #F9F9F9;
+	font-family: 'Arial', sans-serif;
+	}
+	h2{
+	background-color : #0047AB;
+	padding: 40 px;
+	}
+	p{
+	background-color: #98FB98;
+	
+	}
+	h3{
+	background-color : #B0B0B0;
+	padding: 40 px;
+	}
+
+	.obesityquestion {
+	border : 2px solid #0047AB;
+	border radius: 6px;
+	}
+
+	.resultsobesity{
+	 background-color:#A9A9A9 ;  
+    	 border: 2px solid #D3D3D3;      
+	 border-radius: 8px;
+	}    
+
+</style>
+
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<html>
+<head>
+		
+	<title>Health Help Caribbean Hypertension </title>
+
+	<meta name="description" content= "Health Help Caribbean allows you 	to take control of your health with a free risk assesment for Non-	Communicable Diseases such as Hypertension, Diabetes, and Obesity.">
+	</head>
+
+</body>
+	<a href="homepage.html"> Home </a>
+
+	<h2> Welcome to your Hypertension Health Help asessment!</h2>
+	<p>Answer the following questions truthfully, based on your daily lifestyle, to determine whether or not you are at risk for hypertension </p>
+
+<div class= hypertensionquestionaire>
+<form	id= hypertensionquestionaire action = ""	method = "POST" >
+
+<section>
+<div class = "hypertensionquestion">
+
+   	<h3> How often do you excercise?</h3>
+		<input type = "radio"  id = "hypertension_ex_never" name = "hypertension_ex" value = "never"
+	 	<label for="hypertension_ex_never"> Never </label>
+	
+		<input type = "radio"  id = "hypertension_ex_onceweek" name = "hypertension_ex" value = "once"
+		<label for="hypertension_ex_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "hypertension_ex_twotothree" name = "hypertension_ex" value = "two to three"
+		<label for="hypertension_ex_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "hypertension_ex_ormore" name = "hypertension_ex" value = "more than three"
+		<label for="hypertension_ex_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "hypertensionquestion">
+
+	<h3> How often do you eat fast food or other salty/ oily foods? </h3>
+	
+		<input type = "radio"  id = "hypertension_food_never" name = "hypertension_food" value = "never"
+	 	<label for="hypertension_food_never"> Never </label>
+	
+		<input type = "radio"  id = "hypertension_food_onceweek" name = "hypertension_food" value = "once"
+		<label for="hypertension_food_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "hypertension_food_twotothree" name = "hypertension_food" value = "two to three"
+		<label for="hypertension_food_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "hypertension_food_ormore" name = "hypertension_food" value = "more than three"
+		<label for="hypertension_food_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "hypertensionquestion">
+
+	<h3> How often do you drink alcohol? </h3>
+	
+		<input type = "radio"  id = "hypertension_drink_never" name = "hypertension_drink" value = "never"
+	 	<label for="hypertension_drink_never"> Never </label>
+	
+		<input type = "radio"  id = "hypertension_drink_onceweek" name = "hypertension_drink" value = "once"
+		<label for="hypertension_drink_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "hypertension_drink_twotothree" name = "hypertension_drink" value = "two to three"
+		<label for="hypertension_drink_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "hypertension_drink_ormore" name = "hypertension_drink" value = "more than three"
+		<label for="hypertension_drink_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "hypertensionquestion">
+
+	<h3> Do you have symptoms of headaches, fatigue, or dizziness? </h3>
+
+		<input type = "radio"  id = "hypertension_symptoms_never" name = "hypertension_symptoms" value = "never"
+	 	<label for="hypertension_symptoms_never"> Never </label>
+
+		<input type = "radio"  id = "hypertension_symptoms_sometimes" name = "hypertension_symptoms" value = "sometimes"
+	 	<label for="hypertension_symptoms_sometimes"> Sometimes </label>
+
+		<input type = "radio"  id = "hypertension_symptoms_always" name = "hypertension_symptoms" value = "always"
+	 	<label for="hypertension_symptoms_always"> Always </label>
+</div>
+</section>
+
+<section>
+	<button type = "button" onclick="submit_hypertensionform()"> SUBMIT </button>
+</section>
+
+<h2>RESULTS</h2>
+<div class= "resultshypertension" id= "hypertension_results"> </div>
+<div class= "recomendationshypertension" id= "hypertension_recomend"> </div>
+</form>
+</div>
+
+
+<script> 
+function submit_hypertensionform() {
+	var form = document.getElementById ("hypertensionquestionaire");
+	var formData = new FormData (form);
+
+
+		let exercise = formData.get ("hypertension_ex");
+		let drinks = formData.get ("hypertension_drink");
+		let symptoms = formData.get ("hypertension_symptoms");
+		let food = formData.get ("hypertension_food");
+		
+		let risklevel= "at risk";
+		
+			if  (exercise === "never" && food === "more than three" && drinks === "more than three") {
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "two to three" && drinks === "two to three") {
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "more than three" && drinks === "more than three") {
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "two to three" && drinks === "two to three"){
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "two to three" && drinks === "more than three"){
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "once" && drinks === "more than three"){
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "once" && food === "more than three" && drinks === "more than three"){
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "once" && food === "two to three" && drinks === "two to three"){
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "once" && food === "more than three" && drinks === "more than three") {
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "never" && food === "more than three" && drinks === "two to three") {
+				risklevel = "at risk of hypertension";
+
+			} else if (exercise === "more than three" && food === "more than three" && drinks === "more than three") {
+				risklevel = "at risk of hypertension"
+
+			} else if (symptoms === "always" || symptoms ==="sometimes"){
+				risklevel = "not at risk, however your symptoms of headaches, fatigue and dizzines may need medical attention";
+			
+			} else {
+				risklevel= "not at risk of hypertension";
+			}
+
+	document.getElementById("hypertension_results").innerHTML = "You are " + risklevel;
+
+	if (risklevel === "at risk of hypertension") {
+            document.getElementById("hypertension_recomend").innerHTML = `Visit our recommendation page to see how you can lessen your risk of hypertension. Click <button><a href='results_recomendations.html'> HERE.</a></button> to visit 'Recommendations'.`;
+        }
+    }
+
+</script>
+
+
+<style>
+	section{
+	margin-bottom: 50px;
+	line-height: 2;
+	}
+
+	body{
+	background-color: #F9F9F9;
+	font-family: 'Arial', sans-serif;
+	}
+	h2{
+	background-color : #0047AB;
+	padding: 40 px;
+	}
+	p{
+	background-color: #98FB98;
+	
+	}
+	h3{
+	background-color : #B0B0B0;
+	padding: 40 px;
+	}
+
+	.hypertensionquestion {
+	border : 2px solid #0047AB;
+	border radius: 6px;
+	}
+	.resultshypertension{
+	 background-color:#A9A9A9 ;  
+    	 border: 2px solid #D3D3D3;      
+	 border-radius: 8px;
+	}    
+
+
+
+</style>
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<html>
+<head>
+		
+	<title>Health Help Caribbean Diabetes </title>
+
+	<meta name="description" content= "Health Help Caribbean allows you 	to take control of your health with a free risk assesment for Non-	Communicable Diseases such as Hypertension, Diabetes, and Obesity.">
+	</head>
+
+<body>
+<a href="homepage.html"> Home </a>
+
+<h2> Welcome to your Diabetes Health Help asessment!</h2>
+<p> Answer the following questions truthfully, based on your daily lifestyle, to determine whether or not you are at risk for diabetes.</p> 
+
+<div class= diabetesquestionaire>
+<form	id= diabetesquestionaire action = ""	method = "POST" >
+
+<section>
+<div class = "diabetesquestion">
+   	<h3> How often do you excercise?</h3>
+		<input type = "radio"  id = "diabetes_ex_never" name = "diabetes_ex" value = "never"
+	 	<label for="diabetes_ex_never"> Never </label>
+	
+		<input type = "radio"  id = "diabetes_ex_onceweek" name = "diabetes_ex" value = "once"
+		<label for="diabetes_ex_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "diabetes_ex_twotothree" name = "diabetes_ex" value = "two to three"
+		<label for="diabetes_ex_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "diabetes_ex_ormore" name = "diabetes_ex" value = "more than three"
+		<label for="diabetes_ex_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "diabetesquestion">
+	<h3> How often do you drink sodas and other sugary drinks? </h3>
+	
+		<input type = "radio"  id = "diabetes_drink_never" name = "diabetes_drink" value = "never"
+	 	<label for="diabetes_drink_never"> Never </label>
+	
+		<input type = "radio"  id = "diabetes_drink_onceweek" name = "diabetes_drink" value = "once"
+		<label for="diabetes_drink_onceweek"> Once a week </label>
+		
+		<input type = "radio"  id = "diabetes_drink_twotothree" name = "diabetes_drink" value = "two to three"
+		<label for="diabetes_drink_twotothree"> Two to three times a week </label>
+		
+		<input type = "radio"  id = "diabetes_drink_ormore" name = "diabetes_drink" value = "more than three"
+		<label for="diabetes_drink_ormore"> More than three times a week </label>
+</div>
+</section>
+
+<section>
+<div class = "diabetesquestion">
+	<h3> Does your diet consist of fruits and vegetables? </h3>
+	
+		<input type = "radio"  id = "diabetes_veg_never" name = "diabetes_veg" value = "never"
+	 	<label for="diabetes_veg_never"> Never </label>
+
+		<input type = "radio"  id = "diabetes_veg_sometimes" name = "diabetes_veg" value = "sometimes"
+	 	<label for="diabetes_veg_sometimes"> Sometimes </label>
+
+		<input type = "radio"  id = "diabetes_veg_always" name = "diabetes_veg" value = "always"
+	 	<label for="diabetes_veg_always"> Always </label>
+</div>
+</section>
+
+<section>
+	<button type = "button" onclick="submit_diabetesform()"> SUBMIT </button>
+</section>
+
+<h2>RESULTS</h2>
+<div class= "resultsdiabetes" id= "diabetes_results"> </div>
+<div class= "recomendationsdiabetes" id= "diabetes_recomend"> </div> 
+</form>
+</div>
+
+
+<script> 
+function submit_diabetesform() {
+	var form = document.getElementById ("diabetesquestionaire");
+	var formData = new FormData (form);
+
+
+		let exercise = formData.get ("diabetes_ex");
+		let drinks = formData.get ("diabetes_drink");
+		let veg_fruit = formData.get ("diabetes_veg");
+		
+		let risklevel= "at risk";
+		
+			if  (exercise === "never" && drinks === "more than three" && veg_fruit === "never") {
+				risklevel = "at risk";
+
+			} else if (exercise === "once" && drinks === "more than three" && veg_fruit === "sometimes") {
+				risklevel = "at risk";
+
+			} else if (exercise === "once" && drinks === "two to three" && veg_fruit === "never") {
+				risklevel = "at risk";
+
+			} else if (exercise === "never" && drinks === "more than three" && veg_fruit === "never"){
+				risklevel = "at risk";
+
+			} else if (exercise === "more than three" && drinks === "more than three" && veg_fruit === "never"){
+				risklevel = "at risk";
+
+			} else if (exercise === "two to three" && drinks === "more than three" && veg_fruit === "never"){
+				risklevel = "at risk";
+
+			} else if (exercise === "never" && drinks === "two to three" && veg_fruit === "never"){
+				risklevel = "at risk";
+
+			} else if (exercise === "two to three" && drinks === "two to three" && veg_fruit === "never"){
+				risklevel = "at risk";
+
+			} else if (exercise === "never" && drinks === "more than three" && veg_fruit === "sometimes"){
+				risklevel = "at risk";
+			} else if (exercise === "never" && drinks === "two to three" && veg_fruit === "sometimes") {
+				risklevel = "at risk";
+			} else {
+				risklevel = "not at risk";
+			}
+
+	document.getElementById("diabetes_results").innerHTML = "You are " + risklevel + " of diabetes";
+
+	if (risklevel === "at risk") {
+            document.getElementById("diabetes_recomend").innerHTML = `Visit our recommendation page to see how you can lessen your risk of diabetes. Click <button><a href='results_recomendations.html'> HERE.</a></button> to visit 'Recommendations'.`;
+        }
+    }
+
+
+</script>
+
+
+<style>
+	section{
+	margin-bottom: 50px;
+	line-height: 2;
+	}
+
+	body{
+	background-color: #F9F9F9;
+	font-family: 'Arial', sans-serif;
+	}
+	h2{
+	background-color : #0047AB;
+	padding: 40 px;
+	}
+	p{
+	background-color: #98FB98;
+	
+	}
+	h3{
+	background-color : #B0B0B0;
+	padding: 40 px;
+	}
+
+	.diabetesquestion {
+	border : 2px solid #0047AB;
+	border radius: 6px;
+	}
+	.resultsdiabetes{
+	 background-color:#A9A9A9 ;  
+    	 border: 2px solid #D3D3D3;      
+	 border-radius: 8px;
+	}                          
+       
+
+
+</style>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
